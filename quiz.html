@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <title>שאלון קין והבל</title>
+  <style>
+    body {
+      direction: rtl; /* תמיכה בכתיבה מימין לשמאל */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .question p {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+    .answer-option {
+      display: block;
+      background-color: #e6f7ff;
+      border: 2px solid #91d5ff;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    .answer-option:hover {
+      background-color: #bae7ff;
+      border-color: #40a9ff;
+    }
+    .answer-option input {
+      margin-left: 10px;
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #40a9ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #1890ff;
+    }
+    #successMessage, #errorMessage {
+      display: none; /* מוסתר כברירת מחדל */
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    #successMessage {
+      background-color: #d4edda; 
+      color: #155724;
+    }
+    #errorMessage {
+      background-color: #f8d7da; 
+      color: #721c24;
+    }
+    #successMessage img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>המירוץ למיליון- ברנקו וייס תשפ"ה</h1>
+
+<form id="quizForm">
+  <!-- שאלה 1 -->
+  <div class="question">
+    <p><strong>1. מי היו הוריהם של קין והבל?</strong></p>
+    <label class="answer-option">
+      <input type="radio" name="q1" value="avraham-sarah" /> 
+      אברהם ושרה
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q1" value="adam-chava" /> 
+      אדם וחוה
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q1" value="itzchak-rivka" /> 
+      יצחק ורבקה
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q1" value="yaakov-lea" /> 
+      יעקב ולאה
+    </label>
+  </div>
+
+  <!-- שאלה 2 -->
+  <div class="question">
+    <p><strong>2. מה עושה קין להבל בעקבות הבאת המנחות?</strong></p>
+    <label class="answer-option">
+      <input type="radio" name="q2" value="makriv-olah" />
+      מקריב אותו לעולה
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q2" value="kill" />
+      הורג אותו
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q2" value="bury" />
+      קובר אותו באדמה
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q2" value="hug" />
+      מחבק אותו
+    </label>
+  </div>
+
+  <!-- שאלה 3 -->
+  <div class="question">
+    <p><strong>3. היכן עושה קין להבל את הפעולה הזו?</strong></p>
+    <label class="answer-option">
+      <input type="radio" name="q3" value="ohel-avraham" />
+      באוהל של אברהם
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q3" value="beit-hamikdash" />
+      בבית המקדש
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q3" value="gan-eden" />
+      בגן עדן
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q3" value="field" />
+      בשדה
+    </label>
+  </div>
+
+  <!-- שאלה 4 -->
+  <div class="question">
+    <p><strong>4. מה עונה קין לאלוקים כשהוא נשאל "היכן הבל אחיך?" (בראשית ד, ט)?</strong></p>
+    <label class="answer-option">
+      <input type="radio" name="q4" value="ayeka" />
+      "איכה"
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q4" value="hashomer" />
+      "השומר אחי אנוכי"
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q4" value="al-echad-heharim" />
+      "על אחד ההרים"
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q4" value="mearat-hamachpela" />
+      "מערת המכפלה"
+    </label>
+  </div>
+
+  <!-- שאלה 5 -->
+  <div class="question">
+    <p><strong>5. מה היה מקצועו של קין?</strong></p>
+    <label class="answer-option">
+      <input type="radio" name="q5" value="roeh-tzon" />
+      רועה צאן
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q5" value="morah" />
+      מורה
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q5" value="rab" />
+      רב גדול
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q5" value="farmer" />
+      עובד אדמה
+    </label>
+  </div>
+
+  <button type="button" class="submit-btn" onclick="checkAnswers()">בדוק תשובות</button>
+</form>
+
+<!-- הודעת הצלחה + תמונה (מוסתרת כברירת מחדל) -->
+<div id="successMessage">
+  <h2>יאסו!!!</h2>
+  <!-- החלף את ה-URL לתמונה שלך כאן -->
+  <img src="https://i.imgur.com/Rryr0Z9.jpeg" />
+</div>
+
+<!-- הודעת שגיאה (מוסתרת כברירת מחדל) -->
+<div id="errorMessage">
+  <h2>שגיאה</h2>
+  <p>לפחות אחת מהתשובות אינה נכונה. אנא תקן ונסה שוב.</p>
+</div>
+
+<script>
+function checkAnswers() {
+  // קבלת הטופס והבחירות של המשתמש
+  const form = document.getElementById("quizForm");
+  
+  // קריאת הערכים הנבחרים
+  const q1 = form.elements["q1"].value; 
+  const q2 = form.elements["q2"].value; 
+  const q3 = form.elements["q3"].value; 
+  const q4 = form.elements["q4"].value; 
+  const q5 = form.elements["q5"].value; 
+
+  // הגדרת תשובות נכונות
+  const correct = {
+    q1: "adam-chava", // אדם וחוה
+    q2: "kill",       // הורג אותו
+    q3: "field",      // בשדה
+    q4: "ayeka",      // "איכה"
+    q5: "farmer"      // עובד אדמה
+  };
+
+  // בדיקה אם כל התשובות נכונות
+  let allCorrect = true;
+  if (q1 !== correct.q1) allCorrect = false;
+  if (q2 !== correct.q2) allCorrect = false;
+  if (q3 !== correct.q3) allCorrect = false;
+  if (q4 !== correct.q4) allCorrect = false;
+  if (q5 !== correct.q5) allCorrect = false;
+
+  // הצגת הודעות בהתאם
+  if (allCorrect) {
+    document.getElementById("successMessage").style.display = "block";
+    document.getElementById("errorMessage").style.display = "none";
+  } else {
+    document.getElementById("successMessage").style.display = "none";
+    document.getElementById("errorMessage").style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>
