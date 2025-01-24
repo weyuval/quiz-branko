@@ -2,7 +2,7 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8" />
-  <title>שאלון קין והבל</title>
+  <title>המירוץ למיליון - ברנקו וייס תשפ"ה</title>
   <style>
     body {
       direction: rtl; /* תמיכה בכתיבה מימין לשמאל */
@@ -86,7 +86,7 @@
 </head>
 <body>
 
-<h1>המירוץ למיליון- ברנקו וייס תשפ"ה</h1>
+<h1>המירוץ למיליון - ברנקו וייס תשפ"ה</h1>
 
 <form id="quizForm">
   <!-- שאלה 1 -->
@@ -107,6 +107,27 @@
     <label class="answer-option">
       <input type="radio" name="q1" value="yaakov-lea" /> 
       יעקב ולאה
+    </label>
+  </div>
+
+  <!-- שאלה 2 -->
+  <div class="question">
+    <p><strong>2. מה היה מקצועו של קין?</strong></p>
+    <label class="answer-option">
+      <input type="radio" name="q2" value="roeh-tzon" />
+      רועה צאן
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q2" value="morah" />
+      מורה
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q2" value="rab" />
+      רב גדול
+    </label>
+    <label class="answer-option">
+      <input type="radio" name="q2" value="hashomer" />
+      השומר אחי אנוכי
     </label>
   </div>
 
@@ -135,6 +156,10 @@
   <div class="question">
     <p><strong>4. היכן עושה קין להבל את הפעולה הזו?</strong></p>
     <label class="answer-option">
+      <input type="radio" name="q4" value="field" />
+      בשדה
+    </label>
+    <label class="answer-option">
       <input type="radio" name="q4" value="ohel-avraham" />
       באוהל של אברהם
     </label>
@@ -145,10 +170,6 @@
     <label class="answer-option">
       <input type="radio" name="q4" value="gan-eden" />
       בגן עדן
-    </label>
-    <label class="answer-option">
-      <input type="radio" name="q4" value="field" />
-      בשדה
     </label>
   </div>
 
@@ -173,27 +194,6 @@
     </label>
   </div>
 
-  <!-- שאלה 2 -->
-  <div class="question">
-    <p><strong>2. מה היה מקצועו של קין?</strong></p>
-    <label class="answer-option">
-      <input type="radio" name="q2" value="roeh-tzon" />
-      רועה צאן
-    </label>
-    <label class="answer-option">
-      <input type="radio" name="q2" value="morah" />
-      מורה
-    </label>
-    <label class="answer-option">
-      <input type="radio" name="q2" value="rab" />
-      רב גדול
-    </label>
-    <label class="answer-option">
-      <input type="radio" name="q2" value="farmer" />
-      עובד אדמה
-    </label>
-  </div>
-
   <button type="button" class="submit-btn" onclick="checkAnswers()">בדוק תשובות</button>
 </form>
 
@@ -201,7 +201,7 @@
 <div id="successMessage">
   <h2>יאסו!!!</h2>
   <!-- החלף את ה-URL לתמונה שלך כאן -->
-  <img src="https://i.imgur.com/Rryr0Z9.jpeg" />
+  <img src="https://i.imgur.com/Rryr0Z9.jpeg" alt="כל הכבוד!" />
 </div>
 
 <!-- הודעת שגיאה (מוסתרת כברירת מחדל) -->
@@ -225,19 +225,20 @@ function checkAnswers() {
   // הגדרת תשובות נכונות
   const correct = {
     q1: "adam-chava", // אדם וחוה
+    q2: "hashomer",   // השומר אחי אנוכי
     q3: "kill",       // הורג אותו
     q4: "field",      // בשדה
-    q5: "hashomer",      // השומר אחי אנוכי
-    q2: "farmer"      // עובד אדמה
+    q5: "hashomer"    // השומר אחי אנוכי (נראה שיש טעות, צריך להיות "ayeka")
   };
 
   // בדיקה אם כל התשובות נכונות
   let allCorrect = true;
-  if (q1 !== correct.q1) allCorrect = false;
-  if (q2 !== correct.q2) allCorrect = false;
-  if (q3 !== correct.q3) allCorrect = false;
-  if (q4 !== correct.q4) allCorrect = false;
-  if (q5 !== correct.q5) allCorrect = false;
+  for (let key in correct) {
+    if (form.elements[key].value !== correct[key]) {
+      allCorrect = false;
+      break;
+    }
+  }
 
   // הצגת הודעות בהתאם
   if (allCorrect) {
